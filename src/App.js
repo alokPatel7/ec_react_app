@@ -4,7 +4,6 @@ import './App.css';
 import { routes } from './router/routes';
 
 function App() {
-
   return (
     <Router>
       <Routes>

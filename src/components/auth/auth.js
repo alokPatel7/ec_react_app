@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import './login.css';
-import { Button, FormHelperText, IconButton, InputAdornment, TextField } from "@mui/material";
+import './auth.css';
+import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { emailRegx, passwordRegex } from '../../utils/constant';
+import SnackBarComponent from '../snack-bars/snackbar';
 
 export default function LoginComponent() {
     const [fullName, setFullName] = useState('');
@@ -12,12 +14,10 @@ export default function LoginComponent() {
     const [isPasswordValid, setIsPasswordValid] = useState(false);
 
     const validateEmail = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        return emailRegx.test(email);
     };
 
     const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
         return passwordRegex.test(password);
     };
 
@@ -36,14 +36,14 @@ export default function LoginComponent() {
     }
 
     const handleCreateNewAccount = () => {
-        
+
         console.log('@ fullname', fullName);
         console.log('@ email', email);
         console.log('@ password', password);
     }
 
     const handleSignIn = () => {
-        
+
         console.log('@ email', email);
         console.log('@ password', password);
     }
@@ -195,6 +195,12 @@ export default function LoginComponent() {
                     </div>
                 </div>
             </div>
+
+            <SnackBarComponent
+                openSnakBar={true}
+                type={'success'}
+                message={'User created successfully'}
+            />
         </>
     )
 }
