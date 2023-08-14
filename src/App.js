@@ -1,11 +1,18 @@
+// import { Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import ParentComponent from './components/parent';
+import { routes } from './router/routes';
 
 function App() {
+
   return (
-    <>
-      <ParentComponent />
-    </>
+    <Router>
+      <Routes>
+        {routes.map((r, index) => {
+          return <Route key={index} path={r.path} element={r.component} />
+        })}
+      </Routes>
+    </Router>
   );
 }
 
