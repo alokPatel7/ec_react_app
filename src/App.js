@@ -1,7 +1,9 @@
 // import { Router, Routes, Route } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { routes } from './router/routes';
+import { routes } from './router/app.routing';
+
+// require('dotenv').config();
 
 function App() {
   return (

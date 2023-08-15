@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import './auth.css';
+import './auth.component.css';
 import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { emailRegx, passwordRegex } from '../../utils/constant';
-import SnackBarComponent from '../snack-bars/snackbar';
+import SnackBarComponent from '../snack-bars/snackbar.component';
+import { SignIn, SignUp } from '../../services/auth.service';
 
 export default function LoginComponent() {
     const [fullName, setFullName] = useState('');
@@ -12,6 +13,9 @@ export default function LoginComponent() {
     const [showPassword, setShowPassword] = useState(false);
     const [isEmailValid, setIsEmailValid] = useState(false);
     const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const [openSnakBar, setOpenSnakBar] = useState(false);
+    const [snackbarType, setSnackbarType] = useState();
+    const [snackBarMessage, setSnackBarMessage] = useState();
 
     const validateEmail = (email) => {
         return emailRegx.test(email);
@@ -35,23 +39,48 @@ export default function LoginComponent() {
         container.classList.remove("right-panel-active");
     }
 
-    const handleCreateNewAccount = () => {
+    const handleCreateNewAccount = async () => {
+        if (fullName && email && password) {
+            try {
+                const firstName = fullName.split(' ').slice(0, 1).join('');
+                const lastName = fullName.split(' ').slice(1).join(' ');
+                const payload = { firstName, lastName, email, password };
+                const data = await SignUp(payload);
+                console.log('# signup data', data);
+            } catch (error) {
+                const err = error?.response?.data;
+                console.log('# signup Error', err);
+                setSnackbarType('error');
+                setSnackBarMessage(err.message);
+                setOpenSnakBar(true);
 
-        console.log('@ fullname', fullName);
-        console.log('@ email', email);
-        console.log('@ password', password);
+                setTimeout(() => {
+                    setOpenSnakBar(false);
+                }, 6000);
+            }
+        }
     }
 
-    const handleSignIn = () => {
-
-        console.log('@ email', email);
-        console.log('@ password', password);
+    const handleSignIn = async () => {
+        if (email && password) {
+            const payload = { email, password };
+            try {
+                const { data } = await SignIn(payload);
+                console.log('# login data', data);
+            } catch (error) {
+                console.log('# login Error', error);
+            }
+        }
     }
 
     const resetState = () => {
         setFullName('');
         setEmail('');
         setPassword('');
+        setIsEmailValid(false);
+        setIsPasswordValid(false);
+
+        console.log('@ sss', fullName);
     }
 
     const handleClickShowPassword = () => {
@@ -197,9 +226,9 @@ export default function LoginComponent() {
             </div>
 
             <SnackBarComponent
-                openSnakBar={true}
-                type={'success'}
-                message={'User created successfully'}
+                openSnakBar={openSnakBar}
+                type={snackbarType}
+                message={snackBarMessage}
             />
         </>
     )
