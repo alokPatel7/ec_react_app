@@ -106,6 +106,7 @@ export default function LoginComponent() {
                                 id="outlined-basic-name"
                                 label="Full Name"
                                 variant="outlined"
+                                value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
                             />
                             <TextField
@@ -115,6 +116,7 @@ export default function LoginComponent() {
                                 id="outlined-basic-email"
                                 label="Email"
                                 variant="outlined"
+                                value={email}
                                 onChange={(e) => {
                                     setEmail(e.target.value);
                                     setIsEmailValid(validateEmail(e.target.value));
@@ -127,6 +129,7 @@ export default function LoginComponent() {
                                 id="outlined-basic-password"
                                 label="Password"
                                 variant="outlined"
+                                value={password}
                                 onChange={(e) => {
                                     setPassword(e.target.value);
                                     setIsPasswordValid(validatePassword(e.target.value));
@@ -170,6 +173,7 @@ export default function LoginComponent() {
                                 id="outlined-basic-p-email"
                                 label="Email"
                                 variant="outlined"
+                                value={email}
                                 onChange={(e) => {
                                     setEmail(e.target.value);
                                     setIsEmailValid(validateEmail(e.target.value));
@@ -181,6 +185,7 @@ export default function LoginComponent() {
                                 type={showPassword ? 'text' : 'password'}
                                 id="outlined-basic-p-password"
                                 label="Password"
+                                value={password}
                                 variant="outlined"
                                 onChange={(e) => {
                                     setPassword(e.target.value);
@@ -206,6 +211,8 @@ export default function LoginComponent() {
                                 variant="contained"
                                 onClick={handleSignIn}
                             >Sign In</Button>
+
+                            {/* <Button onClick={() => setEmail('')}>Reset</Button> */}
                         </form>
                     </div>
                     <div className="overlay-container">
