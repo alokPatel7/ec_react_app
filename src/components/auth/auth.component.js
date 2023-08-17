@@ -6,7 +6,7 @@ import { emailRegx, passwordRegex } from '../../utils/constant';
 import SnackBarComponent from '../snack-bars/snackbar.component';
 import { SignIn, SignUp } from '../../services/auth.service';
 
-export default function LoginComponent() {
+export default function AuthComponent() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

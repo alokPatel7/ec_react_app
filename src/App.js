@@ -1,20 +1,10 @@
-// import { Router, Routes, Route } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { routes } from './router/app.routing';
+import MainLayout from './components/MainLayout';
 
-// require('dotenv').config();
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        {routes.map((r, index) => {
-          return <Route key={index} path={r.path} element={r.component} />
-        })}
-      </Routes>
-    </Router>
-  );
-}
+const App = () => {
+    return (
+        <MainLayout />
+    );
+};
 
 export default App;

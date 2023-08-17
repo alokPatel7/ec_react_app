@@ -1,7 +1,7 @@
-import LoginComponent from "../components/auth/auth.component";
-import HomeComponent from "../components/home.component";
+import AuthComponent from "../components/auth/auth.component";
+import MainLayout from "../components/MainLayout";
 
 export const routes = [
-    { path: '/', component: <HomeComponent /> },
-    { path: '/login', component: <LoginComponent /> },
+
+    { path: '/', component: <AuthComponent /> },
 ]
