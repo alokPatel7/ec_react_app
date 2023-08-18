@@ -2,91 +2,174 @@ import React from 'react'
 import './Sidebar.css'
 
 export default function Sidebar({ children }) {
-    const toggleSidebar = () => {
-        var getSidebar = document.querySelector('nav');
-        getSidebar.classList.toggle('active');
-    };
-
     return (
-        <>
-            <header>
-                <div className="toggle">
-                    <i className="fas fa-bars" />
-                </div>
-                <h3>Dashboard</h3>
-                <a href="#">
-                    <i className="fas fa-sign-out-alt" />
-                </a>
-            </header>
-            <nav>
+        <nav className="main-menu">
+            <div>
+                <a className="logo" href="#"></a>
+            </div>
+            <div className="settings" />
+            <div className="scrollbar" id="style-1">
                 <ul>
-                    <li onClick={toggleSidebar}>
-                        <a className="toggle">
-                            <span className="icon">
-                                <i className="fas fa-bars" />
-                            </span>
-                            <span className="title">Menu</span>
+                    <li>
+                        <a href="#">
+                            <i className="fa fa-home fa-lg" />
+                            <span className="nav-text">Home</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-home" />
-                            </span>
-                            <span className="title">Home</span>
+                            <i className="fa fa-user fa-lg" />
+                            <span className="nav-text">Login</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-user" />
-                            </span>
-                            <span className="title">Profile</span>
+                            <i className="fa fa-envelope fa-lg" />
+                            <span className="nav-text">Contact</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-envelope" />
+                            <i className="fa fa-heart fa-lg" />
+                            <span className="share"></span>
+                        </a>
+                        <div className="addthis_default_style addthis_32x32_style">
+                            <a href="#"></a>
+                            <div style={{ position: "absolute", marginLeft: 56, top: 3 }}>
+                                <a href="#"></a>
+                                <a
+                                    href="https://www.facebook.com/sharer/sharer.php?u="
+                                    target="_blank"
+                                    className="share-popup"
+                                >
+                                    <img
+                                        src="http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png"
+                                        width="30px"
+                                        height="30px"
+                                    />
+                                </a>
+                                <a
+                                    href="https://twitter.com/share"
+                                    target="_blank"
+                                    className="share-popup"
+                                >
+                                    <img
+                                        src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png"
+                                        width="30px"
+                                        height="30px"
+                                    />
+                                </a>
+                                <a
+                                    href="https://plusone.google.com/_/+1/confirm?hl=en&url=_URL_&title=_TITLE_
+"
+                                    target="_blank"
+                                    className="share-popup"
+                                >
+                                    <img
+                                        src="http://icons.iconarchive.com/icons/danleech/simple/512/google-plus-icon.png"
+                                        width="30px"
+                                        height="30px"
+                                    />
+                                </a>
+                            </div>
+                            <span className="twitter" />
+                            <span className="google" />
+                            <span className="fb-like">
+                                <iframe
+                                    src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fstartific&width&layout=button&action=like&show_faces=false&share=false&height=35"
+                                    scrolling="no"
+                                    frameBorder={0}
+                                    style={{ border: "none", overflow: "hidden", height: 35 }}
+                                    allowTransparency="true"
+                                />
                             </span>
-                            <span className="title">Messages</span>
+                            <span className="nav-text"></span>
+                        </div>
+                    </li>
+                    <li className="darkerlishadow">
+                        <a href="#">
+                            <i className="fa fa-clock fa-lg" />
+                            <span className="nav-text">News</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="darkerli">
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-info" />
-                            </span>
-                            <span className="title">Help</span>
+                            <i className="fa fa-desktop fa-lg" />
+                            <span className="nav-text">Technology</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="darkerli">
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-cog" />
-                            </span>
-                            <span className="title">Setting</span>
+                            <i className="fa fa-plane fa-lg" />
+                            <span className="nav-text">Travel</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="darkerli">
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-lock" />
-                            </span>
-                            <span className="title">Password</span>
+                            <i className="fa fa-shopping-cart" />
+                            <span className="nav-text">Shopping</span>
                         </a>
                     </li>
-                    <li>
+                    <li className="darkerli">
                         <a href="#">
-                            <span className="icon">
-                                <i className="fas fa-sign-out-alt" />
-                            </span>
-                            <span className="title">Sign Out</span>
+                            <i className="fa fa-microphone fa-lg" />
+                            <span className="nav-text">Film &amp; Music</span>
+                        </a>
+                    </li>
+                    <li className="darkerli">
+                        <a href="#">
+                            <i className="fa fa-flask fa-lg" />
+                            <span className="nav-text">Web Tools</span>
+                        </a>
+                    </li>
+                    <li className="darkerli">
+                        <a href="#">
+                            <i className="fa fa-picture fa-lg" />
+                            <span className="nav-text">Art &amp; Design</span>
+                        </a>
+                    </li>
+                    <li className="darkerli">
+                        <a href="#">
+                            <i className="fa fa-align-left fa-lg" />
+                            <span className="nav-text">Magazines</span>
+                        </a>
+                    </li>
+                    <li className="darkerli">
+                        <a href="#">
+                            <i className="fa fa-gamepad fa-lg" />
+                            <span className="nav-text">Games</span>
+                        </a>
+                    </li>
+                    <li className="darkerli">
+                        <a href="#">
+                            <i className="fa fa-glass fa-lg" />
+                            <span className="nav-text">Life &amp; Style</span>
+                        </a>
+                    </li>
+                    <li className="darkerlishadowdown">
+                        <a href="#">
+                            <i className="fa fa-rocket fa-lg" />
+                            <span className="nav-text">Fun</span>
                         </a>
                     </li>
                 </ul>
-            </nav>
-        </>
+                <li>
+                    <a href="#">
+                        <i className="fa fa-question-circle fa-lg" />
+                        <span className="nav-text">Help</span>
+                    </a>
+                </li>
+                <ul className="logout">
+                    <li>
+                        <a href="#">
+                            <i className="fa fa-lightbulb fa-lg" />
+                            <span className="nav-text">BLOG</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
     )
 }
 
