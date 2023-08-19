@@ -1,11 +1,24 @@
 import AdminDashboard from "../views/admin/AdminDashboard/AdminDashboard";
+import SellerDashboard from "../views/seller/SellerDashboard/SellerDashboard";
+import UserDashboard from "../views/user/UserDashboard/UserDashboard";
 
-export const adminRouting = [
-    { path: '/', component: <AdminDashboard /> }
+const adminRouting = [
+    { path: '/dashboard', component: <AdminDashboard /> }
 ]
-export const userRouting = [
-    { path: '/', component: <AdminDashboard /> }
+const userRouting = [
+    { path: '/dashboard', component: <UserDashboard /> }
 ]
-export const sellerRouting = [
-    { path: '/', component: <AdminDashboard /> }
+const sellerRouting = [
+    { path: '/dashboard', component: <SellerDashboard /> }
 ]
+
+export const getRoutingArrayByRole = (role) => {
+    switch (role) {
+        case 'admin':
+            return adminRouting;
+        case 'seller':
+            return sellerRouting;
+        default:
+            return userRouting;
+    }
+}

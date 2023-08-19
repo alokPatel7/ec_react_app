@@ -9,6 +9,8 @@ export default function AuthenticationWrapper() {
         if (!data) {
             navigate('/account');
         }
+
+        navigate('/dashboard');
     })
 
     return (<></>)
