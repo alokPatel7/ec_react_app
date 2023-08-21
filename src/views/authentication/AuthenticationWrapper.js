@@ -6,11 +6,12 @@ export default function AuthenticationWrapper() {
 
     useEffect(() => {
         const data = localStorage.getItem('myData');
-        if (!data) {
+        if (data) {
             navigate('/account');
+        } else {
+            navigate('/dashboard');
         }
 
-        navigate('/dashboard');
     })
 
     return (<></>)

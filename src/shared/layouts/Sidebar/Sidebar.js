@@ -1,174 +1,105 @@
-import React from 'react'
-import './Sidebar.css'
+import React, { useState } from 'react';
+import './Sidebar.css'; // Create a separate CSS file for your styles
 
-export default function Sidebar() {
+function Sidebar() {
+    const [isSidebarActive, setSidebarActive] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarActive(!isSidebarActive);
+    };
+
+    // const toggleSubMenu = (e) => {
+    //     const subMenu = e.currentTarget.nextElementSibling;
+    //     subMenu.style.display = 'block';
+    //     //  classList.toggle('active');
+    //     const dropdown = e.currentTarget.querySelector('.dropdown');
+    //     dropdown.classList.toggle('rotate');
+    // };
+
+    const toggleSubMenu = (e) => {
+        const subMenu = e.currentTarget.nextElementSibling;
+        const dropdown = e.currentTarget.querySelector('.dropdown');
+
+        // Toggle the 'active' class to show/hide the sub-menu
+        if (subMenu.style.display === 'block') {
+            subMenu.style.display = 'none';
+            dropdown.classList.remove('rotate');
+        } else {
+            subMenu.style.display = 'block';
+            dropdown.classList.add('rotate');
+        }
+    };
+
+
     return (
-        <nav className="main-menu">
-            <div>
-                <a className="logo" href="#"></a>
-            </div>
-            <div className="settings" />
-            <div className="scrollbar" id="style-1">
-                <ul>
-                    <li>
+        <div>
+            {/* <div className={`menu-btn ${isSidebarActive ? 'hidden' : ''}`} onClick={toggleSidebar}>
+                <i className="fas fa-bars"></i>
+            </div> */}
+
+            <div className="side-bar active">
+                <header>
+                    <div className="close-btn" onClick={toggleSidebar}>
+                        {/* <i className="fas fa-times"></i> */}
+                    </div>
+                    <img
+                        src="https://lh3.googleusercontent.com/a-/AOh14Gj99VObFyE8W_h8RrcwZO_aYiIHu5AAa_XpnOym=s600-k-no-rp-mo"
+                        alt=""
+                    />
+                    <h1>Mystery Code</h1>
+                </header>
+                <div className="menu">
+                    <div className="item">
                         <a href="#">
-                            <i className="fa fa-home " />
-                            <span className="nav-text">Home</span>
+                            <i className="fas fa-desktop"></i>Dashboard
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-user " />
-                            <span className="nav-text">Login</span>
+                    </div>
+                    <div className="item">
+                        <a className="sub-btn" onClick={toggleSubMenu}>
+                            <i className="fas fa-table"></i>Tables<i className="fas fa-angle-right dropdown"></i>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-envelope " />
-                            <span className="nav-text">Contact</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-heart " />
-                            <span className="share"></span>
-                        </a>
-                        <div className="addthis_default_style addthis_32x32_style">
-                            <a href="#"></a>
-                            <div style={{ position: "absolute", marginLeft: 56, top: 3 }}>
-                                <a href="#"></a>
-                                <a
-                                    href="https://www.facebook.com/sharer/sharer.php?u="
-                                    target="_blank"
-                                    className="share-popup"
-                                >
-                                    <img
-                                        src="http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png"
-                                        width="30px"
-                                        height="30px"
-                                    />
-                                </a>
-                                <a
-                                    href="https://twitter.com/share"
-                                    target="_blank"
-                                    className="share-popup"
-                                >
-                                    <img
-                                        src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png"
-                                        width="30px"
-                                        height="30px"
-                                    />
-                                </a>
-                                <a
-                                    href="https://plusone.google.com/_/+1/confirm?hl=en&url=_URL_&title=_TITLE_
-"
-                                    target="_blank"
-                                    className="share-popup"
-                                >
-                                    <img
-                                        src="http://icons.iconarchive.com/icons/danleech/simple/512/google-plus-icon.png"
-                                        width="30px"
-                                        height="30px"
-                                    />
-                                </a>
-                            </div>
-                            <span className="twitter" />
-                            <span className="google" />
-                            <span className="fb-like">
-                                <iframe
-                                    src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fstartific&width&layout=button&action=like&show_faces=false&share=false&height=35"
-                                    scrolling="no"
-                                    frameBorder={0}
-                                    style={{ border: "none", overflow: "hidden", height: 35 }}
-                                    lowtransparency="true"
-                                />
-                            </span>
-                            <span className="nav-text"></span>
+                        <div className="sub-menu">
+                            <a href="#" className="sub-item">
+                                Sub Item 01
+                            </a>
+                            <a href="#" className="sub-item">
+                                Sub Item 02
+                            </a>
+                            <a href="#" className="sub-item">
+                                Sub Item 03
+                            </a>
                         </div>
-                    </li>
-                    <li className="darkerlishadow">
+                    </div>
+                    <div className="item">
                         <a href="#">
-                            <i className="fa fa-clock " />
-                            <span className="nav-text">News</span>
+                            <i className="fas fa-th"></i>Forms
                         </a>
-                    </li>
-                    <li className="darkerli">
+                    </div>
+                    <div className="item">
+                        <a className="sub-btn" onClick={toggleSubMenu}>
+                            <i className="fas fa-cogs"></i>Settings<i className="fas fa-angle-right dropdown"></i>
+                        </a>
+                        <div className="sub-menu">
+                            <a href="#" className="sub-item">
+                                Sub Item 01
+                            </a>
+                            <a href="#" className="sub-item">
+                                Sub Item 02
+                            </a>
+                        </div>
+                    </div>
+                    <div className="item">
                         <a href="#">
-                            <i className="fa fa-desktop " />
-                            <span className="nav-text">Technology</span>
+                            <i className="fas fa-info-circle"></i>About
                         </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-plane " />
-                            <span className="nav-text">Travel</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-shopping-cart" />
-                            <span className="nav-text">Shopping</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-microphone " />
-                            <span className="nav-text">Film &amp; Music</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-flask " />
-                            <span className="nav-text">Web Tools</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-picture " />
-                            <span className="nav-text">Art &amp; Design</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-align-left " />
-                            <span className="nav-text">Magazines</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-gamepad " />
-                            <span className="nav-text">Games</span>
-                        </a>
-                    </li>
-                    <li className="darkerli">
-                        <a href="#">
-                            <i className="fa fa-glass " />
-                            <span className="nav-text">Life &amp; Style</span>
-                        </a>
-                    </li>
-                    <li className="darkerlishadowdown">
-                        <a href="#">
-                            <i className="fa fa-rocket " />
-                            <span className="nav-text">Fun</span>
-                        </a>
-                    </li>
-                </ul>
-                <li>
-                    <a href="#">
-                        <i className="fa fa-question-circle " />
-                        <span className="nav-text">Help</span>
-                    </a>
-                </li>
-                <ul className="logout">
-                    <li>
-                        <a href="#">
-                            <i className="fa fa-lightbulb " />
-                            <span className="nav-text">BLOG</span>
-                        </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
-        </nav>
-    )
+            <section className="main">
+                <h1>Sidebar Menu With<br />Sub-Menus</h1>
+            </section>
+        </div>
+    );
 }
 
+export default Sidebar;

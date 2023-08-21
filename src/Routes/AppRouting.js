@@ -9,12 +9,13 @@ import { getRoutingArrayByRole } from './RoutingConfig'
 
 export default function AppRouting() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(false);
-  const [userRole, SetUserRole] = useState('user');
+  const [userRole, SetUserRole] = useState('seller');
   const [activeRouting, setActiveRouting] = useState([]);
 
   useEffect(() => {
     const getActiveRouting = async () => {
       const routing = await getRoutingArrayByRole(userRole);
+      console.log('@ routing', routing);
       setActiveRouting(routing);
       setUserLoggedIn(true);
     }
@@ -24,7 +25,7 @@ export default function AppRouting() {
   return (
     <div>
       {isUserLoggedIn && <Sidebar />}
-      {isUserLoggedIn && <Header />}
+      {/* {isUserLoggedIn && <Header />} */}
       <div style={{ marginLeft: '55px', marginTop: '50px', padding: '5px' }}>
         <BrowserRouter>
           <Routes>
