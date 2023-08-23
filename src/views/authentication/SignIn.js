@@ -89,7 +89,7 @@ export default function SignIn() {
     return (
         <>
             <div className='auth-container'>
-                <div className="container" id="container">
+                <div className="auth-container" id="container">
                     <div className="form-container sign-up-container">
                         <form action="#">
                             <h1>Create Account</h1>

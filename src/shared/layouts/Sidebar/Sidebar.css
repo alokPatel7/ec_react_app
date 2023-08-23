@@ -1,153 +1,115 @@
-/* Sidebar.css */
-
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-} */
-
-body {
-    min-height: 100vh;
-    background: white;
-    color: white;
-    background-size: cover;
-    background-position: center;
-}
-
-.side-bar {
-    background: #1e325d;
-    backdrop-filter: blur(15px);
-    width: 250px;
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
     height: 100vh;
+    overflow: auto;
+    margin-top: 3.3%;
+    border-right: 1px solid #ccc;
     position: fixed;
-    top: 0;
-    left: -250px;
-    overflow-y: auto;
-    transition: 0.6s ease;
-    transition-property: left;
+    overflow: scroll;
 }
 
-.side-bar::-webkit-scrollbar {
-    width: 0px;
-}
 
-.side-bar.active {
-    left: 0;
-}
-
-h1 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 25px;
-    padding-bottom: 13px;
-    font-family: sans-serif;
-    letter-spacing: 2px;
-}
-
-.side-bar .menu {
-    width: 100%;
-    margin-top: 30px;
-}
-
-.side-bar .menu .item {
-    position: relative;
-    cursor: pointer;
-}
-
-.side-bar .menu .item a {
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
+.sidebar-item {
+    padding: .75em 1em;
     display: block;
-    padding: 5px 30px;
-    line-height: 60px;
-}
-
-.side-bar .menu .item a:hover {
-    background: #33363a;
-    transition: 0.3s ease;
-}
-
-.side-bar .menu .item i {
-    margin-right: 15px;
-}
-
-.side-bar .menu .item a .dropdown {
-    position: absolute;
-    right: 0;
-    margin: 20px;
-    transition: 0.3s ease;
-}
-
-.side-bar .menu .item .sub-menu {
-    background: #262627;
-    display: none;
-}
-
-.side-bar .menu .item .sub-menu a {
-    padding-left: 80px;
-    transition: 0.3s ease;
-}
-
-.rotate {
-    transform: rotate(90deg);
-}
-
-.close-btn {
-    position: absolute;
-    color: #fff;
-    font-size: 23px;
-    right: 0px;
-    margin: 15px;
+    transition: background-color .15s;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.menu-btn {
-    position: absolute;
-    color: rgb(0, 0, 0);
-    font-size: 35px;
-    margin: 25px;
-    cursor: pointer;
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, .1);
 }
 
-.main {
-    height: 100vh;
+.sidebar-title {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
+    font-size: 1.2em;
+    justify-content: space-between;
 }
 
-.main h1 {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 60px;
-    text-align: center;
-    line-height: 80px;
+.sidebar-title span {
+    color: #878a8e;
+    font-size: 18px;
 }
 
-@media (max-width: 900px) {
-    .main h1 {
-        font-size: 40px;
-        line-height: 60px;
-    }
+.toggle-btn {
+    color: #878a8e;
 }
 
-img {
-    width: 100px;
-    margin: 15px;
-    border-radius: 50%;
-    margin-left: 70px;
-    border: 3px solid #b4b8b9;
+.sidebar-title span i {
+    display: inline-block;
+    width: 1.5em;
 }
 
-header {
-    background: #1e325d;
+.sidebar-title .toggle-btn {
+    cursor: pointer;
+    transition: transform .3s;
 }
 
-/* Add this to your existing CSS */
-.side-bar .menu .item a:hover {
-    background: #33363a;
-    transition: 0.3s ease;
+.sidebar-item.open>.sidebar-title .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.sidebar-content {
+    padding-top: .25em;
+    height: 0;
+    overflow: hidden;
+}
+
+.sidebar-item.open>.sidebar-content {
+    height: auto;
+}
+
+.sidebar-item.plain {
+    color: #878a8e;
+    text-decoration: none;
+}
+
+.sidebar-item.plain i {
+    display: inline-block;
+    width: 1.7em;
+}
+
+/* Add these styles to your sidebar.css */
+
+/* Customize the scrollbar track (the area behind the thumb) */
+::-webkit-scrollbar {
+    width: 2px;
+    /* Adjust the width as needed */
+}
+
+/* Customize the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #093575;
+    /* Color of the thumb */
+    border-radius: 6px;
+    /* Rounded corners for the thumb */
+}
+
+/* Customize the scrollbar track when hovering over it */
+::-webkit-scrollbar-thumb:hover {
+    background: #093575;
+    /* Color when hovering */
+}
+
+/* Customize the scrollbar track (background) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Background color of the track */
+}
+
+
+
+.sidebar .user-details {
+    width: 100%;
+    height: 40px;
+}
+
+.active-menu {
+    background-color: rgba(9, 53, 117, 0.1);
+}
+
+.sidebar-menu-title {
+    color: #093575 !important;
 }

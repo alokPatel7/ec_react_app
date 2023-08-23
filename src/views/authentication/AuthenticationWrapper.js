@@ -12,7 +12,7 @@ export default function AuthenticationWrapper() {
             navigate('/dashboard');
         }
 
-    })
+    }, [navigate])
 
     return (<></>)
 }

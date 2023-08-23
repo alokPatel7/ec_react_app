@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="ecr-app">
+    // <div className="ecr-app">
       <AppRouting />
-    </div>
+    // </div>
   );
 }
 

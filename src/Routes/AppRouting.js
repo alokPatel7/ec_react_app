@@ -15,7 +15,6 @@ export default function AppRouting() {
   useEffect(() => {
     const getActiveRouting = async () => {
       const routing = await getRoutingArrayByRole(userRole);
-      console.log('@ routing', routing);
       setActiveRouting(routing);
       setUserLoggedIn(true);
     }
@@ -23,10 +22,10 @@ export default function AppRouting() {
   }, [isUserLoggedIn, userRole]);
 
   return (
-    <div>
+    <div className="main">
       {isUserLoggedIn && <Sidebar />}
-      {/* {isUserLoggedIn && <Header />} */}
-      <div style={{ marginLeft: '55px', marginTop: '50px', padding: '5px' }}>
+      {isUserLoggedIn && <Header />}
+      <div className="container">
         <BrowserRouter>
           <Routes>
             <Route key={1} path='/' element={<AuthenticationWrapper />} />
