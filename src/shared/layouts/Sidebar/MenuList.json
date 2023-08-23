@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "title": "Dashboard",
+    "icon": "fa-solid fa-gauge",
+    "path": "/support",
+    "isSelected": false
+  },
+  {
+    "id": 2,
+    "title": "Product Management",
+    "icon": "fa-brands fa-product-hunt",
+    "childrens": [
+      {
+        "id": 4,
+        "title": "Products",
+        "path": "/product-list",
+        "icon": "fa-solid fa-plus",
+        "isSelected": false
+      },
+      {
+        "id": 3,
+        "title": "Add Product",
+        "icon": "fa-solid fa-plus",
+        "path": "/add-product",
+        "isSelected": false
+      },
+      {
+        "id": 31,
+        "title": "View Product",
+        "icon": "fa-solid fa-eye",
+        "path": "/view-product",
+        "isSelected": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Setting",
+    "icon": "fa-solid fa-gear",
+    "childrens": [
+      {
+        "id": 8,
+        "title": "Profile",
+        "path": "/profile",
+        "isSelected": false
+      },
+      {
+        "id": 9,
+        "title": "Settings",
+        "isSelected": false
+      },
+      {
+        "id": 10,
+        "title": "Logout",
+        "path": "/logout",
+        "isSelected": false
+      },
+      {
+        "id": 5,
+        "title": "Forgot Password",
+        "path": "/forgot-password",
+        "icon": "fa-solid fa-plus",
+        "isSelected": false
+      },
+      {
+        "id": 6,
+        "title": "Reset Password",
+        "path": "/reset-password",
+        "icon": "fa-solid fa-plus",
+        "isSelected": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Support",
+    "icon": "bi-question-circle-fill",
+    "path": "/support",
+    "isSelected": false
+  },
+  {
+    "id": 12,
+    "title": "Report Bug",
+    "icon": "bi-bug",
+    "path": "/report-bug",
+    "isSelected": false
+  }
+]

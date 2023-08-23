@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Sidebar.css'; // Create a separate CSS file for your styles
-import items from './Sidebar.json'
+import items from './MenuList.json'
 import SidebarItem from './SidebarItems';
 
 function Sidebar() {

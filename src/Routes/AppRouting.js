@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Header from '../shared/layouts/header/Header'
-import Sidebar from '../shared/layouts/Sidebar/Sidebar'
 import AuthenticationWrapper from '../views/authentication/AuthenticationWrapper'
 import SignIn from '../views/authentication/SignIn'
-import MainRouting from './MainRouting'
 import { getRoutingArrayByRole } from './RoutingConfig'
+import ScreenWrapper from '../shared/layouts/wrapper/wrapper'
+import SellerDashboard from '../views/seller/SellerDashboard/SellerDashboard'
 
 export default function AppRouting() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(false);
@@ -23,20 +22,23 @@ export default function AppRouting() {
 
   return (
     <div className="main">
-      {isUserLoggedIn && <Sidebar />}
-      {isUserLoggedIn && <Header />}
-      <div className="container">
-        <BrowserRouter>
-          <Routes>
-            <Route key={1} path='/' element={<AuthenticationWrapper />} />
-            <Route key={2} path='/account' element={<SignIn />} />
 
+      <BrowserRouter>
+        <Routes>
+          <Route key={1} path='/' element={<AuthenticationWrapper />} />
+          <Route key={2} path='/account' element={<SignIn />} />
+          <Route key={3} element={<ScreenWrapper />}>
             {isUserLoggedIn && activeRouting.map((route, index) => {
               return <Route key={index} path={route.path} element={route.component} />
             })}
-          </Routes>
-        </BrowserRouter>
-      </div>
+            {/* <Route key={4} path='/dashboard' element={<SellerDashboard />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* </div> */}
     </div>
   )
 }
+
+
+
