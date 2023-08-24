@@ -91,7 +91,7 @@ export default function SignIn() {
             <div className='auth-container'>
                 <div className="auth-container" id="container">
                     <div className="form-container sign-up-container">
-                        <form action="#">
+                        <form className='signinform' action="#">
                             <h1>Create Account</h1>
                             <div className="social-container">
                                 <i className="social fab fa-facebook-f" />
@@ -158,7 +158,7 @@ export default function SignIn() {
                         </form>
                     </div>
                     <div className="form-container sign-in-container">
-                        <form action="#">
+                        <form action="#" className='signinform'>
                             <h1>Sign in</h1>
                             <div className="social-container">
                                 <i className="social fab fa-facebook-f" />
